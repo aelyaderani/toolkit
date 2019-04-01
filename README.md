@@ -6,6 +6,8 @@ Celltype_classification.R
       Now in fileName.xlsx file you will list the file names without the file extensions ->  genelist1
                                                                                              genelist2
                                                                                              genelist3
+
+
 Seurat_auto_3plot.R
       the script will create 3 plots, mito level, gene count level and umi level. you will need an xlsx file that
       will include a list of the file sample directory names. Use 'listoffiles.xlsx' as an example (it's in the toolkit master node)
