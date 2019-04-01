@@ -12,3 +12,7 @@ Seurat_auto_3plot.R
       the script will create 3 plots, mito level, gene count level and umi level. you will need an xlsx file that
       will include a list of the file sample directory names. Use 'listoffiles.xlsx' as an example (it's in the toolkit master node)
       
+
+
+
+![alt text](https://ibb.co/SXPLzbP)
