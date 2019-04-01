@@ -26,7 +26,7 @@ cat /scratch/aelyaderani/directorynamelist.txt | tr -s '/' ',' > /scratch/aelyad
 cut -d',' -f3 /scratch/aelyaderani/directorynamelist.csv > /scratch/aelyaderani/steponeDirectory.txt
 cat /scratch/aelyaderani/steponeDirectory.txt | tr -s ‘_’ ',' > /scratch/aelyaderani/directorynamelist.csv
 #cuting out the unnessory part of the name so cell ranger can recognize them.
-cut -d',' -f1-10 /scratch/aelyaderani/directorynamelist.csv > /scratch/aelyaderani/steptwoDirectory.txt
+cut -d',' -f2-10 /scratch/aelyaderani/directorynamelist.csv > /scratch/aelyaderani/steptwoDirectory.txt
 #grabing LID list for the flowcell
 cut -d',' -f9 /scratch/aelyaderani/directorynamelist.csv > /scratch/aelyaderani/LID.csv
 cat /scratch/aelyaderani/steptwoDirectory.txt | tr -s ‘,’ ‘_’ > /scratch/aelyaderani/directorynamelist.csv
