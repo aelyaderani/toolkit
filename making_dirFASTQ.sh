@@ -23,7 +23,7 @@ mkdir /scratch/aelyaderani/temp_samples/Stats
 find /liang/fastq_DoNotTouch/*$flowcell -name Sample*_$projectN_*_$flowcell_* > /scratch/aelyaderani/directorynamelist.txt
 #take the text file, and repalce / with , to creat a csv
 cat /scratch/aelyaderani/directorynamelist.txt | tr -s '/' ',' > /scratch/aelyaderani/directorynamelist.csv
-#grabing only the 3rd column with the name needed for creating new directories
+#grabing only the 3rd column with the name needed for creating new directories(THIS CAN ALSO BE 5th or 6th*************)
 cut -d',' -f3 /scratch/aelyaderani/directorynamelist.csv > /scratch/aelyaderani/steponeDirectory.txt
 cat /scratch/aelyaderani/steponeDirectory.txt | tr -s ‘_’ ',' > /scratch/aelyaderani/directorynamelist.csv
 #cuting out the unnessory part of the name so cell ranger can recognize them.
