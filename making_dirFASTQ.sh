@@ -14,6 +14,7 @@ declare projectN=X5SCR
 declare flowcell=HG57WDSXX
 
 #making cell ranger format directories (with correct layout)
+mkdir /scratch/aelyaderani/temp_samples
 mkdir /scratch/aelyaderani/temp_samples/$flowcell
 mkdir /scratch/aelyaderani/temp_samples/Reports
 mkdir /scratch/aelyaderani/temp_samples/Stats
