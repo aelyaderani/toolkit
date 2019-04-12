@@ -10,7 +10,7 @@
 #SBATCH -o /scratch/aelyaderani/Single_Cell_Analysis/Cell_Ranger/oeFiles/count_%j.out
 #SBATCH -e /scratch/aelyaderani/Single_Cell_Analysis/Cell_Ranger/oeFiles/count_%j.err
 
-
+declare projectN=X5SCR
 declare flowcell=HG57WDSXX
 
 #making cell ranger format directories (with correct layout)
@@ -19,7 +19,7 @@ mkdir /scratch/aelyaderani/temp_samples/Reports
 mkdir /scratch/aelyaderani/temp_samples/Stats
 
 #find a list of directories where fastq for the spicific flowcell are located.
-find /liang/fastq_DoNotTouch/*$flowcell -name Sample*_$flowcell_* > /scratch/aelyaderani/directorynamelist.txt
+find /liang/fastq_DoNotTouch/*$flowcell -name Sample*_$projectN_*_$flowcell_* > /scratch/aelyaderani/directorynamelist.txt
 #take the text file, and repalce / with , to creat a csv
 cat /scratch/aelyaderani/directorynamelist.txt | tr -s '/' ',' > /scratch/aelyaderani/directorynamelist.csv
 #grabing only the 3rd column with the name needed for creating new directories
