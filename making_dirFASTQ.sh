@@ -16,8 +16,7 @@ declare flowcell=HG57WDSXX
 #making cell ranger format directories (with correct layout)
 mkdir /scratch/aelyaderani/temp_samples
 mkdir /scratch/aelyaderani/temp_samples/$flowcell
-mkdir /scratch/aelyaderani/temp_samples/Reports
-mkdir /scratch/aelyaderani/temp_samples/Stats
+
 
 #find a list of directories where fastq for the spicific flowcell are located.
 find /liang/fastq_DoNotTouch/*$flowcell -name Sample*_$projectN_*_$flowcell_* > /scratch/aelyaderani/directorynamelist.txt
