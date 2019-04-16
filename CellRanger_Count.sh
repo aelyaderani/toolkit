@@ -16,7 +16,7 @@ declare out=/scratch/aelyaderani/HG57WDSXX
 
 declare cellranger_ref=/home/tgenref/homo_sapiens/grch38_hg38/tool_specific_resources/cellranger/refdata-cellranger-GRCh38-3.0.0
 
-declare sample
+
 declare cell_count=4000
 declare chemistry=SC5P-PE
 declare mem=34
@@ -32,8 +32,9 @@ count="$((i-1))"
 for ((idx=1; idx<=count; idx++)); do
 
     temp=primaryNode$idx
-    lib_id=${!temp}
-    fastq_dir=/scratch/aelyaderani/temp_samples/HG57WDSXX/${!temp}
+    declare sample=${!temp}
+    declare lib_id=${!temp}
+    declare fastq_dir=/scratch/aelyaderani/temp_samples/HG57WDSXX/${!temp}
 
     cd $out
     echo -e "cellranger count --id=${lib_id}\n
