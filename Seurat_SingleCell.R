@@ -42,6 +42,19 @@ pbmc <- subset(x = pbmc, subset = nFeature_RNA > 200 & nFeature_RNA < 4000 & per
 
 pbmc <- NormalizeData(object = pbmc, normalization.method = "LogNormalize", scale.factor = 10000)
 
+#***********************Identification of highly variable features (feature selection)
+pbmc <- FindVariableFeatures(object = pbmc, selection.method = "vst", nfeatures = 2000)
+
+# Identify the 10 most highly variable genes
+top10 <- head(x = VariableFeatures(object = pbmc), 10)
+
+# plot variable features with and without labels
+plot1 <- VariableFeaturePlot(object = pbmc)
+plot2 <- LabelPoints(plot = plot1, points = top10, repel = TRUE)
+CombinePlots(plots = list(plot1, plot2))
+
+#__________________________________________________________
+
 pbmc <- FindVariableFeatures(object = pbmc, selection.method = 'mean.var.plot', mean.cutoff = c(0.0125, 3), dispersion.cutoff = c(0.5, Inf))
 #VlnPlot(object = pbmc, features = c("percent.mito"), ncol = 1)
 #VlnPlot(object = pbmc, features = c("nFeature_RNA", "nCount_RNA", "percent.mito"), ncol = 3)
@@ -75,14 +88,14 @@ dev.off()
 
 pbmc <- FindNeighbors(object = pbmc, dims = 1:10)
 pbmc <- FindClusters(object = pbmc, resolution = 0.4)
-pbmc_tsne <- RunTSNE(object = pbmc, dims.use = 1:10, do.fast = TRUE)
-pbmc_umap <- RunUMAP(object = pbmc, reduction = "pca", assay = "RNA", dims = 1:10)
+#pbmc_tsne <- RunTSNE(object = pbmc, dims.use = 1:10, do.fast = TRUE)
+pbmc <- RunUMAP(object = pbmc, reduction = "pca", assay = "RNA", dims = 1:10)
 
 #DimPlot(pbmc, reduction.use = "umap")
 
-pdf(file=paste(projectName,"_tsne_noName.pdf",sep=""))
-DimPlot(object = pbmc_tsne, reduction = 'tsne')
-dev.off()
+#pdf(file=paste(projectName,"_tsne_noName.pdf",sep=""))
+#DimPlot(object = pbmc_tsne, reduction = 'tsne')
+#dev.off()
 
 pdf(file=paste(projectName,"_umap_noName.pdf",sep=""))
 DimPlot(object = pbmc_umap, reduction = 'umap')
